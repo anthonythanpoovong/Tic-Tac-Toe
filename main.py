@@ -10,62 +10,60 @@ import random
 # -Board (rows and columns)
 # -Place pieces ('x', 'o')
 
-#Defining the functions that we will need
-def next_turn():
-    pass 
+#variables
+size = 900
 
-def check_winner():
-    pass
+class Tic_Tac_Toe():
+    def __init__(self):
+        #Creating the basic window interface
+        self.window = Tk()
+        self.window.title("Tic-Tac-Toe")
+        self.window.configure(size, height = size)
+        self.canvas = Canvas(self.window,width=size , height=size)
+        self.canvas.pack()
+        self.window.bind('<Button-1>', self.click)
+        self.initialize_board()
+        self.Turn = True
+        self.restart = False
+        self.X_Score = 0
+        self.O_Score = 0
+        
+    def main_loop(self):
+        self.window.mainloop()
 
-def empty_spaces():
-    pass
+    def create_board(self):
+        for i in range(2):
+            self.canvas.create_line((i + 1) * size / 3, 0, (i + 1) * size / 3, size)
 
-def new_game():
-    pass
+        for i in range(2):
+            self.canvas.create_line(0, (i + 1) * size / 3, size, (i + 1) * size / 3)
 
-#Creating the basic window interface
-window = Tk()
-window.title("Tic-Tac-Toe")
-window.configure(width = 600, height = 400)
 
-#Creating a list of players
-list_players = ["player_1 (O)","player_2 (X)"]
+    def next_turn():
+        pass 
 
-#Selecting a random player by passing our list of players
-player = random.choice(list_players)
+    def check_winner():
+        pass
 
-#Creating a 2D list of tiles
-tiles = []
-rows, cols = 3,3
-for i in range (rows):
-    col = []
-    for j in range (cols):
-        col.append(0)
-    tiles.append(col)
-print(tiles)
+    def empty_spaces():
+        pass
 
-#2D list of tiles
-# tiles = [[0, 0, 0],
-#          [0, 0, 0],
-#          [0, 0, 0]]
+    def new_game():
+        pass
 
-#Helps display the users turn
-turn = Label(text = player + " turn ", font = ('consolas',40))
-turn.pack(side="top")
+    #Helps display the users turn
+    turn = Label(text =  " turn ", font = ('consolas',40))
+    turn.pack(side="top")
 
-#Restarts the game button
-reset_button = Button(text = "restart", font=('consolas', 20), command = new_game)
-reset_button.pack (side = "top")
+    #Restarts the game button
+    reset_button = Button(text = "restart", font=('consolas', 20), command = new_game)
+    reset_button.pack (side = "top")
+    
+    
+    
+Tk = mainloop()
+Tk.mainloop()
 
-#A frame is used as the foundation class to implement complex widgets
-frame = Frame(window)
-#Makes the program fill in the window
-frame.pack()
 
-#Nested for loop to diplsay the grid and the text
-for x in range(rows):
-    col = []
-    for y in range (cols):
-        tiles [x][y] = Button(frame, text="",font = ('consolas', 40), width = 5, height =2, command = lambda row=x, column=y: next_turn(rows))
-        tiles[x][y].grid(row=x, column=y)
-window.mainloop()
+
+

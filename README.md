@@ -1,4 +1,4 @@
 # Tic-Tac-Toe
-Tic Tac Toe made from Python that is used to vs an AI
+Tic Tac Toe game using Python and the library Tkinter. It's able to be played with 2 users.
 
-NOT COMPLETED!!
+COMPLETED!!
